@@ -60,8 +60,32 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Platforms\Android\NovaPasta\**" />
+	  <AndroidResource Remove="Resources\NovaPasta\**" />
+	  <Compile Remove="Platforms\Android\NovaPasta\**" />
+	  <Compile Remove="Resources\NovaPasta\**" />
+	  <EmbeddedResource Remove="Platforms\Android\NovaPasta\**" />
+	  <EmbeddedResource Remove="Resources\NovaPasta\**" />
+	  <MauiCss Remove="Platforms\Android\NovaPasta\**" />
+	  <MauiCss Remove="Resources\NovaPasta\**" />
+	  <MauiXaml Remove="Platforms\Android\NovaPasta\**" />
+	  <MauiXaml Remove="Resources\NovaPasta\**" />
+	  <None Remove="Platforms\Android\NovaPasta\**" />
+	  <None Remove="Resources\NovaPasta\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\CadastroDeEventos.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TotalDeEventos.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

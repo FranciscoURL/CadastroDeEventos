@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CadastroDeEventos.Views.CadastroDeEventos"
+             Title="CadastroDeEventos"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Black}">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10">
+        <Label Text="Cadastro Do Evento"
+               FontSize="50"
+               TextColor="{StaticResource Tertiary}"/>
+
+        <Frame Padding="10">
+            <VerticalStackLayout>
+                <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *, *">
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Total De Pessoas:"/>
+                    <Label Grid.Row="0" Grid.Column="1"
+                           Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_pessoas}"/>
+
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                             x:Name="stp_pessoas"
+                             Minimum="0"
+                             Maximum="50"
+                             Increment="1"/>
+                </Grid>
+
+                <Label Text="Escolha o seu local"/>
+
+                <Picker x:Name="pck_local"
+                        Title="Selecione um dos locais"/>
+
+                <Frame Padding="10"
+                       Margin="10">
+                    <VerticalStackLayout>
+                        <Label Text="Período do evento"/>
+                        
+                        <HorizontalStackLayout>
+                            <Label Text="Início Do Evento: "/>
+                            <DatePicker x:Name="dtpck_inicio"
+                                        Format="dd/MM/yyyy"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <Label Text="Fim Do Evento: "/>
+                            <DatePicker x:Name="dtpck_fim"
+                                        Format="dd/MM/yyyy"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Button Text="Avançar"/>
+
+
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+    
+</ContentPage>
