@@ -10,6 +10,7 @@
         <Label Text="Cadastro Do Evento"
                FontSize="50"
                TextColor="{StaticResource Tertiary}"/>
+        
 
         <Frame Padding="10">
             <VerticalStackLayout>
@@ -32,7 +33,8 @@
                 <Label Text="Escolha o seu local"/>
 
                 <Picker x:Name="pck_local"
-                        Title="Selecione um dos locais"/>
+                        Title="Selecione um dos locais"
+                        ItemDisplayBinding="{Binding Descricao}"/>
 
                 <Frame Padding="10"
                        Margin="10">
@@ -42,6 +44,7 @@
                         <HorizontalStackLayout>
                             <Label Text="Início Do Evento: "/>
                             <DatePicker x:Name="dtpck_inicio"
+                                        DateSelected="dtpck_inicio_DateSelected"
                                         Format="dd/MM/yyyy"/>
                         </HorizontalStackLayout>
 
@@ -53,7 +56,7 @@
                     </VerticalStackLayout>
                 </Frame>
 
-                <Button Text="Avançar"/>
+                <Button Text="Avançar" Clicked="Button_Clicked"/>
 
 
             </VerticalStackLayout>

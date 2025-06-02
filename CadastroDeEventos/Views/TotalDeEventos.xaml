@@ -2,11 +2,51 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CadastroDeEventos.Views.TotalDeEventos"
-             Title="TotalDeEventos">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             NavigationPage.HasNavigationBar="False"
+             Background="{StaticResource Black}">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+        <Label Text="{Binding LocalEscolhido.Descricao}"
+               TextColor="{StaticResource Primary}"
+               FontSize="50"
+               HorizontalTextAlignment="Center"/>
+
+        <Frame Margin="10">
+
+            <HorizontalStackLayout>
+                <Label Text="Total De Pessoas: "/>
+                <Label Text="{Binding QntPessoas}"/>
+            </HorizontalStackLayout>
+            
+        </Frame>
+
+        <Frame Margin="10">
+
+            <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Início: "/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Fim: "/>
+                <Label Grid.Row="0" Grid.Column="3" Text="Total de Dias: "/>
+                
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataInicio, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding DataFinal, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                <Label Grid.Row="3" Grid.Column="3" Text="{Binding Tempo}"/>
+            </Grid>
+            
+        </Frame>
+
+        <Frame Margin="10">
+
+            <HorizontalStackLayout>
+                <Label Text="Valor Total: "/>
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}"/>
+            </HorizontalStackLayout>
+            
+        </Frame>
+
+        <Button Text="Voltar"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked"/>
+
     </VerticalStackLayout>
 </ContentPage>
